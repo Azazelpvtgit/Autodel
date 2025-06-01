@@ -9,8 +9,15 @@ users_col = db.users
 gbans_col = db.gbans
 
 async def add_group(chat_id, title):
-    await groups_col.update_one({"chat_id": chat_id}, {"$set": {"title": title}}, upsert=True)
-
+    if not await groups_col.find_one({"chat_id": chat_id}):
+        await groups_col.insert_one({"chat_id": chat_id, "title": title})
+        # Set default timer to 24 hours (86400 sec)
+        await settings_col.update_one({"chat_id": chat_id}, {"$set": {
+            "timer": 86400,
+            "del_pinned": False,
+            "del_posts": True,
+            "del_comments": True
+        }}, upsert=True)
 async def get_groups():
     return await groups_col.find().to_list(length=None)
 
