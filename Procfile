@@ -1,6 +1,0 @@
-phases:
-  install:
-    commands:
-      - pip install -r requirements.txt
-  start:
-    cmd: python3 bot.py
