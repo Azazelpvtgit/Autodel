@@ -1,1 +1,2 @@
-start=python3 bot.py
+[build]
+  start = "python3 bot.py"
