@@ -3,7 +3,7 @@ from config import SUPPORT_CHAT, UPDATES_CHANNEL
 
 def start_buttons():
     return InlineKeyboardMarkup([
-        [InlineKeyboardButton("➕ Add Me To Your Group ➕", url="https://t.me/YOUR_BOT_USERNAME?startgroup=true")],
+        [InlineKeyboardButton("➕ Add Me To Your Group ➕", url="https://t.me/Autodeldronbot?startgroup=true")],
         [
             InlineKeyboardButton("📢 Updates", url=UPDATES_CHANNEL),
             InlineKeyboardButton("💬 Support", url=SUPPORT_CHAT)
